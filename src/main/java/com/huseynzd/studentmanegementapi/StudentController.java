@@ -1,8 +1,6 @@
 package com.huseynzd.studentmanegementapi;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,8 +8,14 @@ import java.util.List;
 @RequestMapping("/students")
 public class StudentController {
     private List<Student> students = new ArrayList<>();
+
     @GetMapping
     public List<Student> getAllStudents(){
         return students;
+    }
+    @PostMapping
+    public Student createStudent(@RequestBody Student student){
+        students.add(student);
+        return student;
     }
 }
