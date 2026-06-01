@@ -27,4 +27,25 @@ public class StudentController {
         }
         return null;
     }
+    @PutMapping("/{id}")
+    public Student updateStudentsByID(@PathVariable Integer id,@RequestBody Student updatedStudent){
+        for (Student student : students){
+            if (student.getId().equals(id)){
+                student.setName(updatedStudent.getName());
+                student.setSurname(updatedStudent.getSurname());
+                student.setAge(updatedStudent.getAge());
+            }
+        }
+        return null;
+    }
+    @DeleteMapping("/{id}")
+    public String deleteStudentByID(@PathVariable Integer id){
+        for (Student student : students){
+            if (student.getId().equals(id)){
+                students.remove(student);
+                return "Student is deleted";
+            }
+        }
+        return "Student not found";
+    }
 }
