@@ -1,0 +1,26 @@
+### GET request to example server
+GET http://localhost:8081/students
+
+###
+POST http://localhost:8081/students
+Content-Type: application/json
+
+{
+  "id": 2,
+  "name": "Nurnihat",
+  "surname": "Huseynzade",
+  "age": 18
+}
+###
+POST http://localhost:8081/students
+Content-Type: application/json
+
+{
+  "id":1,
+  "name": "Huseyn",
+  "surname": "Huseynzade",
+  "age": 19
+
+}
+###
+GET http://localhost:8081/students/2

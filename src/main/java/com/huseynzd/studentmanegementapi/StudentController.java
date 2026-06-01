@@ -7,7 +7,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/students")
 public class StudentController {
-    private List<Student> students = new ArrayList<>();
+    private  List<Student> students = new ArrayList<>();
 
     @GetMapping
     public List<Student> getAllStudents(){
@@ -17,5 +17,14 @@ public class StudentController {
     public Student createStudent(@RequestBody Student student){
         students.add(student);
         return student;
+    }
+    @GetMapping("/{id}")
+    public Student getStudentsByID(@PathVariable Integer id){
+        for(Student student : students){
+            if (student.getId().equals(id)){
+                return student;
+            }
+        }
+        return null;
     }
 }
